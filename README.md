@@ -1,2 +1,2 @@
-# test github connet
-# readme
+# Tmux的配置文件
+放在 ~/ 下
