@@ -1,4 +1,5 @@
-安装nvim 和 nodejs
+安装nvim 和 nodejs 
+
 ```bash
 apt-get install neovim nodejs
 ```
