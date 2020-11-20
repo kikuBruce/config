@@ -24,6 +24,29 @@ else
 endif
 
 
+" bl -> Buffer list
+nnoremap <silent> bl :ls<CR>
+
+" bo -> Buffer new
+nnoremap <silent> bo :enew<CR>
+
+" bn -> Buffer next
+nnoremap <silent> bn :bnext<CR>
+
+" bp -> Buffer previous
+nnoremap <silent> bp :bprevious<CR>
+
+" bd -> Buffer delete 
+nnoremap <silent> bd :bdelete<CR>
+
+" airline show Buffer list
+let g:airline#extensions#tabline#enabled=1
+
+" show Buffer num
+let g:airline#extensions#tabline#buffer_nr_show=1
+
+
+
 """"""""
 "Plugin
 """"""""
@@ -57,7 +80,7 @@ Plug 'liuchengxu/space-vim-dark'
 """"""""""""""
 "Plugin Config
 """"""""""""""
-" let g:pmenu_scheme = 'dark'
+let g:pmenu_scheme = 'dark'
 
 " AirLin
 let g:airline#extensions#tabline#enabled = 1
