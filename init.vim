@@ -6,6 +6,7 @@ set nu
 syntax on
 set cursorline
 
+set t_Co=256
 set tags+=tags
 
 "set mouse=a
@@ -69,12 +70,12 @@ Plug 'crusoexia/vim-monokai'
 " color
 Plug 'jnurmine/Zenburn'
 call plug#end()
+" python-syntax
+Plug 'hdima/python-syntax'
 " python-mode
-" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " color schema
-Plug 'liuchengxu/space-vim-dark'
-
-
+Plug 'liuchengxu/space-vim-dark' 
 
 
 """"""""""""""
@@ -106,6 +107,9 @@ let g:ctrlp_follow_symlinks = 1
 " coc
 set hidden
 set updatetime=100
+
+" python-syntax
+let g:python_highlight_all = 1
 
 " coc plug
 let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python']
@@ -162,7 +166,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " let g:python_doc_bind = 'K'
 " let g:python_repo_goto_definition_bind = '<C-]>'
 " let g:python_lint = 1
-" let g:python_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
+let g:python_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
 " let g:python_options_max_line_length = 80
 
 colorscheme delek
+" colorscheme inkpot
+
+
