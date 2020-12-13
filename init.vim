@@ -1,6 +1,5 @@
-"""""""""""
 "Vim Config 
-"""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
 set nu
 syntax on
@@ -8,10 +7,6 @@ set cursorline
 
 set t_Co=256
 set tags+=tags
-
-"set mouse=a
-"set selection=exclusive
-"set selectmode=mouse,key
 
 set laststatus=2
 set completeopt=longest,menu
@@ -24,69 +19,56 @@ else
   set signcolumn=yes
 endif
 
+" run python
+map <leader>r ::terminal python3 %<CR>
+
 
 " bl -> Buffer list
 nnoremap <silent> bl :ls<CR>
-
 " bo -> Buffer new
 nnoremap <silent> bo :enew<CR>
-
 " bn -> Buffer next
 nnoremap <silent> bn :bnext<CR>
-
 " bp -> Buffer previous
 nnoremap <silent> bp :bprevious<CR>
-
 " bd -> Buffer delete 
 nnoremap <silent> bd :bdelete<CR>
 
 " airline show Buffer list
 let g:airline#extensions#tabline#enabled=1
-
 " show Buffer num
 let g:airline#extensions#tabline#buffer_nr_show=1
 
 
-
-""""""""
 "Plugin
-""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
-" Tree
+
+" nerdTree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
 " AirLine
 Plug 'vim-airline/vim-airline'
-Plug'vim-airline/vim-airline-themes'
-" IndentLine
-Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline-themes'
+
 " ctrlp.vim
 Plug 'kien/ctrlp.vim'
+
 " coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-" monakai
-Plug 'crusoexia/vim-monokai'
-" color
-Plug 'jnurmine/Zenburn'
-call plug#end()
-" python-syntax
-Plug 'hdima/python-syntax'
-" python-mode
+
+" python mode
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-" color schema
-Plug 'liuchengxu/space-vim-dark' 
+
+call plug#end()
 
 
-""""""""""""""
 "Plugin Config
-""""""""""""""
-let g:pmenu_scheme = 'dark'
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AirLin
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'bubblegum'
-
 
 " NERDTree
 map <leader>e :NERDTreeMirror<CR>
@@ -107,11 +89,6 @@ let g:ctrlp_follow_symlinks = 1
 " coc
 set hidden
 set updatetime=100
-
-" python-syntax
-let g:python_highlight_all = 1
-
-" coc plug
 let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python']
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -129,7 +106,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
@@ -145,31 +122,13 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window.
 nnoremap <silent> <LEADER>d :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" python mode
-" let g:pymode = 1
-" let g:python3_host_prog = '/usr/local/bin/python3'
-" let g:pymode_trim_whitespaces = 1
-" let g:pymode_doc = 1
-" let g:python_doc_bind = 'K'
-" let g:python_repo_goto_definition_bind = '<C-]>'
-" let g:python_lint = 1
 let g:python_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
-" let g:python_options_max_line_length = 80
+let g:python_options_max_line_length = 80
 
 colorscheme delek
-" colorscheme inkpot
+" colorscheme zenburn
 
 
