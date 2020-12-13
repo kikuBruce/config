@@ -8,6 +8,7 @@ set cursorline
 set t_Co=256
 set tags+=tags
 
+set tabstop=4
 set laststatus=2
 set completeopt=longest,menu
 set ruler
@@ -32,7 +33,7 @@ nnoremap <silent> bn :bnext<CR>
 " bp -> Buffer previous
 nnoremap <silent> bp :bprevious<CR>
 " bd -> Buffer delete 
-nnoremap <silent> bd :bdelete<CR>
+nnoremap <silent> bd :bd!<CR>
 
 " airline show Buffer list
 let g:airline#extensions#tabline#enabled=1
@@ -89,7 +90,7 @@ let g:ctrlp_follow_symlinks = 1
 " coc
 set hidden
 set updatetime=100
-let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python']
+let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python', 'coc-css', 'coc-html', 'coc-vetur', 'coc-pairs']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
