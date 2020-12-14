@@ -62,6 +62,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " python mode
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
+" emmet 
+Plug 'mattn/emmet-vim'
+
+" python semshi
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+" ack
+Plug 'mileszs/ack.vim'
+
 call plug#end()
 
 
@@ -90,7 +99,7 @@ let g:ctrlp_follow_symlinks = 1
 " coc
 set hidden
 set updatetime=100
-let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python', 'coc-css', 'coc-html', 'coc-vetur', 'coc-pairs']
+let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
