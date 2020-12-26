@@ -42,7 +42,15 @@ sudo cnpm install webpack -g
 ```
 
 # create project
-## create ad project by webpack
+you can create project by terminal or ui
+
+## create a project by ui
+```bash
+vue ui
+```
+then create project on localhost:8080/
+
+## create a webpack project by terminal
 ```bash
 vue init webpack {{front_end}}
 ```
