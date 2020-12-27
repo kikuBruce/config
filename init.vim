@@ -21,8 +21,7 @@ else
 endif
 
 " run python
-map <leader>r ::terminal python3 %<CR>
-
+map <leader>r :!time python3 %<CR>
 
 " bl -> Buffer list
 nnoremap <silent> bl :ls<CR>
@@ -33,7 +32,7 @@ nnoremap <silent> bn :bnext<CR>
 " bp -> Buffer previous
 nnoremap <silent> bp :bprevious<CR>
 " bd -> Buffer delete 
-nnoremap <silent> bd :bd!<CR>
+nnoremap <silent> bd :bd<CR>
 
 " airline show Buffer list
 let g:airline#extensions#tabline#enabled=1
@@ -136,9 +135,7 @@ nnoremap <silent> <LEADER>d :call <SID>show_documentation()<CR>
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 
 let g:python_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
-let g:python_options_max_line_length = 80
-
+let g:pymode_options_max_line_length = 120
+let g:pymode_run = 0
 colorscheme delek
 " colorscheme zenburn
-
-
