@@ -70,6 +70,9 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " ack
 Plug 'mileszs/ack.vim'
 
+" pydoc
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+
 call plug#end()
 
 
