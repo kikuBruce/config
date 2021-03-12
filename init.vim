@@ -14,6 +14,10 @@ set completeopt=longest,menu
 set ruler
 set backspace=2
 
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
 if has("patch-8.1.1564")
   set signcolumn=number
 else
@@ -56,7 +60,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'kien/ctrlp.vim'
 
 " coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " python mode
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
@@ -72,6 +77,18 @@ Plug 'mileszs/ack.vim'
 
 " pydoc
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+
+" leaderF
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+
+" snippts
+Plug 'honza/vim-snippets'
+
+"git
+Plug 'airblade/vim-gitgutter'
+
+" visual
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 call plug#end()
 
@@ -98,11 +115,13 @@ let NERDTreeAutoCenter = 1
 let g:ctrlp_mruf_max = 50
 let g:ctrlp_follow_symlinks = 1
 
+" ack
+map <leader>s :Ack!<Space>
+
 " coc
 set hidden
 set updatetime=100
 let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python', 'coc-pairs']
-
 
 " pydoc
 nmap <leader>, :Pydocstring<CR>
@@ -146,3 +165,6 @@ let g:pymode_options_max_line_length = 120
 let g:pymode_run = 0
 colorscheme delek
 " colorscheme zenburn
+
+" leaderF
+map <leader>F :LeaderfMru<CR>
