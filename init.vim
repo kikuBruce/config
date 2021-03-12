@@ -1,5 +1,6 @@
-"Vim Config 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ===============
+" ===  Config ===
+" ===============
 let mapleader=","
 set nu
 syntax on
@@ -44,9 +45,12 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 
 
-"Plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ===============
+" ===  Plugin ===
+" ===============
 call plug#begin()
+"  startify
+Plug 'mhinz/vim-startify'
 
 " nerdTree
 Plug 'scrooloose/nerdtree'
@@ -57,10 +61,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " ctrlp.vim
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 
 " coc
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " python mode
@@ -72,17 +75,15 @@ Plug 'mattn/emmet-vim'
 " python semshi
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
-" ack
-Plug 'mileszs/ack.vim'
-
 " pydoc
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
 " leaderF
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 " snippts
 Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 
 "git
 Plug 'airblade/vim-gitgutter'
@@ -90,11 +91,16 @@ Plug 'airblade/vim-gitgutter'
 " visual
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
+" fzf
+Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 
-"Plugin Config
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ===================
+" ===  PlugConfig ===
+" ===================
 " AirLin
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'bubblegum'
@@ -122,6 +128,11 @@ map <leader>s :Ack!<Space>
 set hidden
 set updatetime=100
 let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python', 'coc-pairs']
+
+" snippts
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " pydoc
 nmap <leader>, :Pydocstring<CR>
@@ -159,12 +170,16 @@ nnoremap <silent> <LEADER>d :call <SID>show_documentation()<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 " autocmd CursorHold * silent call CocActionAsync('highlight')
-
-let g:python_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
+let g:python_lint_checkers = ['pyflakes', 'mccabe', 'pylint', 'pep257']
 let g:pymode_options_max_line_length = 120
-let g:pymode_run = 0
+let g:pymode_run = 1
 colorscheme delek
 " colorscheme zenburn
 
 " leaderF
 map <leader>F :LeaderfMru<CR>
+
+" fzf
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <silent> <c-p> :Files <CR>
+

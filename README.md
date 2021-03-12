@@ -11,6 +11,23 @@ set -g default-command '/usr/bin/zsh'
 apt-get install zsh
 ```
 
+# fzf
+## 安装
+```bash
+git clone --depth 1 https://github.com/junegunn/fzf.git ./.fzf
+./.fzf/install
+```
+
+# commitizen
+## 安装
+```bash
+npm install commitizen
+```
+## 使用gitc cz 代替 git commit
+```bash
+git cz
+```
+
 ## oh-my-zsh
 ```bash
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -50,6 +67,11 @@ apt-get install neovim nodejs
 ```
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+# ag
+```
+sudo yum install -y epel-release
+sudo yum install -y the_silver_searcher
 ```
 
 ## Plug Install
