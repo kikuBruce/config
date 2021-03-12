@@ -1,3 +1,10 @@
+# tmux 
+## tmux 默认shell
+```
+set -g default-shell '/usr/bin/zsh'
+set -g default-command '/usr/bin/zsh'
+```
+
 # zsh
 ## zhs 安装
 ```bash
