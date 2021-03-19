@@ -4,7 +4,9 @@
 let mapleader=","
 set nu
 syntax on
+set paste
 set cursorline
+set nocompatible
 
 set t_Co=256
 set tags+=tags
@@ -49,6 +51,9 @@ let g:airline#extensions#tabline#buffer_nr_show=1
 " ===  Plugin ===
 " ===============
 call plug#begin()
+" schema
+Plug 'liuchengxu/space-vim-dark'
+
 "  startify
 Plug 'mhinz/vim-startify'
 
@@ -87,6 +92,8 @@ Plug 'SirVer/ultisnips'
 
 "git
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
 " visual
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -95,6 +102,8 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim'
 
+" polyglot
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 
@@ -125,6 +134,7 @@ let g:ctrlp_follow_symlinks = 1
 map <leader>s :Ack!<Space>
 
 " coc
+" NOTE: python.setLinter disanble coc pylint
 set hidden
 set updatetime=100
 let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python', 'coc-pairs']
@@ -171,10 +181,11 @@ nnoremap <silent> <LEADER>d :call <SID>show_documentation()<CR>
 " Highlight the symbol and its references when holding the cursor.
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 let g:python_lint_checkers = ['pyflakes', 'mccabe', 'pylint', 'pep257']
+let g:pymode_python = 'python3'
+let g:pymode_paths = ['/home/linlin/vats/']
+let g:pymode_lint = 1
 let g:pymode_options_max_line_length = 120
 let g:pymode_run = 1
-colorscheme delek
-" colorscheme zenburn
 
 " leaderF
 map <leader>F :LeaderfMru<CR>
@@ -183,3 +194,8 @@ map <leader>F :LeaderfMru<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <c-p> :Files <CR>
 
+colorscheme space-vim-dark 
+hi pythonSelf ctermfg=124 guifg=#6094DB cterm=bold gui=bold
+let python_highlight_all=1
+" colorscheme delek
+" colorscheme zenburn
