@@ -1,9 +1,12 @@
-"Vim Config 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ===============
+" ===  Config ===
+" ===============
 let mapleader=","
 set nu
 syntax on
+set paste
 set cursorline
+set nocompatible
 
 set t_Co=256
 set tags+=tags
@@ -13,6 +16,10 @@ set laststatus=2
 set completeopt=longest,menu
 set ruler
 set backspace=2
+
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
 
 if has("patch-8.1.1564")
   set signcolumn=number
@@ -40,9 +47,15 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=1
 
 
-"Plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ===============
+" ===  Plugin ===
+" ===============
 call plug#begin()
+" schema
+Plug 'liuchengxu/space-vim-dark'
+
+"  startify
+Plug 'mhinz/vim-startify'
 
 " nerdTree
 Plug 'scrooloose/nerdtree'
@@ -53,10 +66,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " ctrlp.vim
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 
 " coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " python mode
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
@@ -67,17 +80,36 @@ Plug 'mattn/emmet-vim'
 " python semshi
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
-" ack
-Plug 'mileszs/ack.vim'
-
 " pydoc
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 
+" leaderF
+" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+
+" snippts
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+
+"git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+
+" visual
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" fzf
+Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
+Plug 'junegunn/fzf.vim'
+
+" polyglot
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 
-"Plugin Config
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ===================
+" ===  PlugConfig ===
+" ===================
 " AirLin
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'bubblegum'
@@ -98,11 +130,19 @@ let NERDTreeAutoCenter = 1
 let g:ctrlp_mruf_max = 50
 let g:ctrlp_follow_symlinks = 1
 
+" ack
+map <leader>s :Ack!<Space>
+
 " coc
+" NOTE: python.setLinter disanble coc pylint
 set hidden
 set updatetime=100
 let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python', 'coc-pairs']
 
+" snippts
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " pydoc
 nmap <leader>, :Pydocstring<CR>
@@ -140,9 +180,22 @@ nnoremap <silent> <LEADER>d :call <SID>show_documentation()<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 " autocmd CursorHold * silent call CocActionAsync('highlight')
-
-let g:python_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
+let g:python_lint_checkers = ['pyflakes', 'mccabe', 'pylint', 'pep257']
+let g:pymode_python = 'python3'
+let g:pymode_paths = ['/home/linlin/vats/']
+let g:pymode_lint = 1
 let g:pymode_options_max_line_length = 120
-let g:pymode_run = 0
-colorscheme delek
+let g:pymode_run = 1
+
+" leaderF
+map <leader>F :LeaderfMru<CR>
+
+" fzf
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <silent> <c-p> :Files <CR>
+
+colorscheme space-vim-dark 
+hi pythonSelf ctermfg=124 guifg=#6094DB cterm=bold gui=bold
+let python_highlight_all=1
+" colorscheme delek
 " colorscheme zenburn
