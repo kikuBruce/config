@@ -18,16 +18,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ./.fzf
 ./.fzf/install
 ```
 
-# commitizen
-## 安装
-```bash
-npm install commitizen
-```
-## 使用gitc cz 代替 git commit
-```bash
-git cz
-```
-
 ## oh-my-zsh
 ```bash
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -46,9 +36,13 @@ https://githubusercontent.com.ipaddress.com/raw.githubusercontent.com
 ## zsh插件
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+git clone git://github.com/joelthelion/autojump.git
 ```
 
-`~/.zshrc`  `plugins  ` 增加  `zsh-autosuggestions`
+`~/.zshrc`  `plugins  ` 增加  `zsh-autosuggestions xxx`
 
 
 # Vim
