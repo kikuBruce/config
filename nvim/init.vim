@@ -4,7 +4,6 @@
 let mapleader=","
 set nu
 syntax on
-set paste
 set cursorline
 set nocompatible
 
@@ -137,7 +136,7 @@ map <leader>s :Ack!<Space>
 " NOTE: python.setLinter disanble coc pylint
 set hidden
 set updatetime=100
-let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python', 'coc-pairs']
+let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-python', 'coc-pairs', 'coc-snippets']
 
 " snippts
 let g:UltiSnipsExpandTrigger="<c-s>"

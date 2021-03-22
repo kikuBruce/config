@@ -1,34 +1,17 @@
-# tmux 
-## tmux 默认shell
+# Linux 工具
+## tmux 
+### tmux 默认shell
 ```
 set -g default-shell '/usr/bin/zsh'
 set -g default-command '/usr/bin/zsh'
 ```
 
-# zsh
-## zhs 安装
+## zsh
 ```bash
 apt-get install zsh
 ```
 
-# fzf
-## 安装
-```bash
-git clone --depth 1 https://github.com/junegunn/fzf.git ./.fzf
-./.fzf/install
-```
-
-# commitizen
-## 安装
-```bash
-npm install commitizen
-```
-## 使用gitc cz 代替 git commit
-```bash
-git cz
-```
-
-## oh-my-zsh
+### oh-my-zsh
 ```bash
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
@@ -43,17 +26,24 @@ ip可以在下面这个网站查到
 https://githubusercontent.com.ipaddress.com/raw.githubusercontent.com
 ```
 
-## zsh插件
+### zsh插件
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+git clone git://github.com/joelthelion/autojump.git
+```
+`~/.zshrc`  `plugins  ` 增加  `zsh-autosuggestions xxx`
+
+## fzf
+```bash
+git clone --depth 1 https://github.com/junegunn/fzf.git ./.fzf
+./.fzf/install
 ```
 
-`~/.zshrc`  `plugins  ` 增加  `zsh-autosuggestions`
-
-
-# Vim
+# VIM 环境
 ## nvim
-
 ```bash
 apt-get install neovim
 ```
@@ -63,24 +53,24 @@ apt-get install neovim
 apt-get install neovim nodejs
 ```
 
-## vim Plug
+## vim plug
 ```
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
-# ag
+
+## 插件安装
+```vim
+:PlugInstall
+
+```
+## ag
 ```
 sudo yum install -y epel-release
 sudo yum install -y the_silver_searcher
 ```
 
-## Plug Install
-```vim
-:PlugInstall
-```
-
-
-### 其他配置
+#### 补充
 
 python的语法提示如果看不清楚可以调整color
 ```
@@ -92,4 +82,15 @@ hi Pmenu      guibg=LightBlue      ctermbg=15
 ```
 nvim .zshrc
 export PATH=$HOME/tmp/vats_local
+```
+
+# GIT
+## git commit template
+```bash
+git config --global commit.template ./git_commit_template
+```
+
+## git commit edit
+```bash
+git config --global core.editor nvim
 ```
